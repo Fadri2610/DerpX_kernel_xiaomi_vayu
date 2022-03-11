@@ -18,6 +18,55 @@
 #include <uapi/linux/sched/types.h>
 #endif
 
+static unsigned int __read_mostly enabled = 0;
+
+static int __init read_enabled_status(char *s)
+{
+    int EStats = 0;
+	if (s)
+		EStats = simple_strtoul(s, NULL, 0);
+
+    if (EStats > 0)
+        enabled = 1;
+    else
+        enabled = 0;
+
+	return 1;
+}
+__setup("zyc.cib=", read_enabled_status);
+
+module_param(enabled, uint, 0644);
+static bool __read_mostly skip_prime_cores = false;
+module_param(skip_prime_cores, bool, 0644);
+static unsigned int __read_mostly input_boost_duration = CONFIG_INPUT_BOOST_DURATION_MS;
+module_param(input_boost_duration, uint, 0644);
+static unsigned int __read_mostly wake_boost_duration = CONFIG_WAKE_BOOST_DURATION_MS;
+module_param(wake_boost_duration, uint, 0644);
+static unsigned int __read_mostly input_boost_freq_lp = CONFIG_INPUT_BOOST_FREQ_LP;
+module_param(input_boost_freq_lp, uint, 0644);
+static unsigned int __read_mostly input_boost_freq_hp = CONFIG_INPUT_BOOST_FREQ_PERF;
+module_param(input_boost_freq_hp, uint, 0644);
+static unsigned int __read_mostly input_boost_freq_prime = CONFIG_INPUT_BOOST_FREQ_PRIME;
+module_param(input_boost_freq_prime, uint, 0644);
+static unsigned int __read_mostly max_boost_freq_lp = CONFIG_MAX_BOOST_FREQ_LP;
+module_param(max_boost_freq_lp, uint, 0644);
+static unsigned int __read_mostly max_boost_freq_hp = CONFIG_MAX_BOOST_FREQ_PERF;
+module_param(max_boost_freq_hp, uint, 0644);
+static unsigned int __read_mostly max_boost_freq_prime = CONFIG_MAX_BOOST_FREQ_PRIME;
+module_param(max_boost_freq_prime, uint, 0644);
+static unsigned int __read_mostly min_freq_lp = CONFIG_MIN_FREQ_LP;
+module_param(min_freq_lp, uint, 0644);
+static unsigned int __read_mostly min_freq_hp = CONFIG_MIN_FREQ_PERF;
+module_param(min_freq_hp, uint, 0644);
+static unsigned int __read_mostly min_freq_prime = CONFIG_MIN_FREQ_PRIME;
+module_param(min_freq_prime, uint, 0644);
+static unsigned int __read_mostly idle_freq_lp = CONFIG_IDLE_FREQ_LP;
+module_param(idle_freq_lp, uint, 0644);
+static unsigned int __read_mostly idle_freq_hp = CONFIG_IDLE_FREQ_PERF;
+module_param(idle_freq_hp, uint, 0644);
+static unsigned int __read_mostly idle_freq_prime = CONFIG_IDLE_FREQ_PRIME;
+module_param(idle_freq_prime, uint, 0644);
+
 enum {
 	SCREEN_OFF,
 	INPUT_BOOST,
