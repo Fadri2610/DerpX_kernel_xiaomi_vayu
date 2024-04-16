@@ -60,11 +60,6 @@ static DEFINE_SPINLOCK(suspend_lock);
 #define TAG "msm_adreno_tz: "
 
 #if 1
-static unsigned int adrenoboost = 3;
-#endif
-
-static unsigned int adrenoboost = 10000;
-static unsigned int adrenoboost = 1;
 static unsigned int adrenoboost = 0;
 #endif
 
