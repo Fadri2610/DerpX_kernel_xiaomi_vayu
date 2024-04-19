@@ -1,3 +1,4 @@
+
 /*
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -303,19 +304,19 @@ static struct snd_pcm_chmap_elem *convert_chmap(int channels, unsigned int bits,
 			chmap->map[0] = SNDRV_CHMAP_FL;
 			chmap->map[1] = SNDRV_CHMAP_FR;
 			break;
-	if (bits) {
-		for (; bits && *maps; maps++, bits >>= 1)
-			if (bits & 1)
-				chmap->map[c++] = *maps;
+		}
 	} else {
 		int c = 0;
 		const unsigned int *maps =
 			protocol == UAC_VERSION_2 ? uac2_maps : uac1_maps;
 
 		if (bits) {
-			for (; bits && *maps; maps++, bits >>= 1)
+			for (; bits && *maps; maps++, bits >>= 1) {
 				if (bits & 1)
 					chmap->map[c++] = *maps;
+	if (c == chmap->channels)
+				break;
+		}
 		} else {
 			/*
 			 * If we're missing wChannelConfig, then guess something
