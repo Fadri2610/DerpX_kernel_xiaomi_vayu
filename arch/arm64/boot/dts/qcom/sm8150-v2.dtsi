@@ -755,7 +755,7 @@
 			#size-cells = <0>;
 
 			qcom,speed-bin = <1>;
-			qcom,initial-pwrlevel = <6>;
+			qcom,initial-pwrlevel = <5>;
 
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
@@ -807,14 +807,6 @@
 
 			qcom,gpu-pwrlevel@6 {
 				reg = <6>;
-				qcom,gpu-freq = <140000000>;
-				qcom,bus-freq = <2>;
-				qcom,bus-min = <1>;
-				qcom,bus-max = <3>;
-			};
-
-			qcom,gpu-pwrlevel@7 {
-				reg = <7>;
 				qcom,gpu-freq = <0>;
 				qcom,bus-freq = <0>;
 				qcom,bus-min = <0>;
@@ -1123,8 +1115,8 @@
 		< 1401600  998400000 >,
 		< 1708800 1267200000 >,
 		< 2016000 1344000000 >,
-		< 2227200 1536000000 >,
-		< 2419200 1612800000 >;
+		< 2419200 1536000000 >,
+		< 2841600 1612800000 >;
 };
 
 &cpu7_cpu_l3_latmon {
