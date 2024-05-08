@@ -485,8 +485,6 @@ static void srcu_queue_delayed_work_on(struct srcu_data *sdp,
 		queue_work_on(sdp->cpu, rcu_gp_wq, &sdp->work);
 		return;
 	}
-
-	timer_reduce(&sdp->delay_work, jiffies + delay);
 }
 
 /*
