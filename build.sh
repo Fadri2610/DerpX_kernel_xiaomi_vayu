@@ -7,7 +7,7 @@
 # Credit to: Rama Bondan Prakoso (rama982)
 #
 
-export TZ=":Asia/Jakarta"
+export TZ=":Americas"
 
 if [[ ! -f Makefile ]]; then
   echo "This not in rootdir kernel, please check directory again"
@@ -18,7 +18,7 @@ fi
 KDIR=$(pwd)
 TC="${KDIR}/.tools"
 AK=${TC}/AnyKernel
-KERNEL_NAME="Derp-KSU"
+KERNEL_NAME="DerpX-KSU"
 KERNEL_TYPE="EAS"
 PHONE="Poco X3 Pro"
 DEVICE="vayu"
@@ -26,8 +26,8 @@ CONFIG=${CONFIG:-vayu_defconfig}
 #CODENAME="-Testing"
 CHAT_ID="${CHAT_ID}"
 TOKEN="${TOKEN}"
-export KBUILD_BUILD_USER=Bagaskara
-export KBUILD_BUILD_HOST=DominatingMachine
+export KBUILD_BUILD_USER=fabi
+export KBUILD_BUILD_HOST=RoGX25
 AK_BRANCH="vayu"
 
 if [[ ! -d $TC/clang || ! -d $TC/gcc64 || ! -d $TC/gcc32 ]]; then
