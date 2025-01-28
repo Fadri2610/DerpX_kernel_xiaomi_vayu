@@ -37,7 +37,7 @@ if [[ ! -d $TC/clang || ! -d $TC/gcc64 || ! -d $TC/gcc32 ]]; then
 fi
 
 if [[ ! -d ${AK} ]]; then
-  git clone https://github.com/bagaskara815/AnyKernel3 --no-tags --single-branch -b $AK_BRANCH ${AK}
+  git clone https://github.com/Fadri2610/AnyKernel3.git --no-tags -b vayu $AK_BRANCH ${AK}
 fi
 
 # KernelSU
